@@ -1,0 +1,315 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>README.md</title>
+      </head>
+      <body>
+        <h1 id="leaflet-control-search">Leaflet Control Search</h1>
+<p><a href="http://badge.fury.io/js/leaflet-search"><img src="https://badge.fury.io/js/leaflet-search.svg" alt="npm version"></a></p>
+<p>A Leaflet control that search markers/features location by custom property.<br />
+Support ajax/jsonp autocompletion and JSON data filter/remapping.</p>
+<p><em>Licensed under the MIT license.</em></p>
+<p><em>Copyright <a href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></em></p>
+<p>Tested in Leaflet 0.7.x and 1.3.x</p>
+<p><img src="https://raw.githubusercontent.com/stefanocudini/leaflet-search/master/images/leaflet-search.jpg" alt="Image"></p>
+<h1 id="where">Where</h1>
+<p><strong>Demo:</strong><br><a href="http://labs.easyblog.it/maps/leaflet-search/">labs.easyblog.it/maps/leaflet-search</a></p>
+<p><strong>Source code:</strong><br><a href="https://github.com/stefanocudini/leaflet-search">Github</a>
+<a href="https://npmjs.org/package/leaflet-search">NPM</a></p>
+<h1 id="install">Install</h1>
+<pre><code>npm install --save leaflet-search
+</code></pre><h1 id="options">Options</h1>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>&#39;&#39;</td>
+<td>url for search by ajax request, ex: &quot;search.php?q={s}&quot;. Can be function to returns string for dynamic parameter setting</td>
+<td></td>
+</tr>
+<tr>
+<td>layer</td>
+<td>null</td>
+<td>layer where search markers(is a L.LayerGroup)</td>
+</tr>
+<tr>
+<td>sourceData</td>
+<td>null</td>
+<td>function to fill _recordsCache, passed searching text by first param and callback in second</td>
+</tr>
+<tr>
+<td>jsonpParam</td>
+<td>null</td>
+<td>jsonp param name for search by jsonp service, ex: &quot;callback&quot;</td>
+</tr>
+<tr>
+<td>propertyLoc</td>
+<td>&#39;loc&#39;</td>
+<td>field for remapping location, using array: [&#39;latname&#39;,&#39;lonname&#39;] for select double fields(ex. [&#39;lat&#39;,&#39;lon&#39;] ) support dotted format: &#39;prop.subprop.title&#39;</td>
+</tr>
+<tr>
+<td>propertyName</td>
+<td>&#39;title&#39;</td>
+<td>property in marker.options(or feature.properties for vector layer) trough filter elements in layer,</td>
+</tr>
+<tr>
+<td>formatData</td>
+<td>null</td>
+<td>callback for reformat all data from source to indexed data object</td>
+</tr>
+<tr>
+<td>filterData</td>
+<td>null</td>
+<td>callback for filtering data from text searched, params: textSearch, allRecords</td>
+</tr>
+<tr>
+<td>moveToLocation</td>
+<td>null</td>
+<td>callback run on location found, params: latlng, title, map</td>
+</tr>
+<tr>
+<td>buildTip</td>
+<td>null</td>
+<td>function to return row tip html node(or html string), receive text tooltip in first param</td>
+</tr>
+<tr>
+<td>container</td>
+<td>&#39;&#39;</td>
+<td>container id to insert Search Control</td>
+</tr>
+<tr>
+<td>zoom</td>
+<td>null</td>
+<td>default zoom level for move to location</td>
+</tr>
+<tr>
+<td>minLength</td>
+<td>1</td>
+<td>minimal text length for autocomplete</td>
+</tr>
+<tr>
+<td>initial</td>
+<td>true</td>
+<td>search elements only by initial text</td>
+</tr>
+<tr>
+<td>casesensitive</td>
+<td>false</td>
+<td>search elements in case sensitive text</td>
+</tr>
+<tr>
+<td>autoType</td>
+<td>true</td>
+<td>complete input with first suggested result and select this filled-in text.</td>
+</tr>
+<tr>
+<td>delayType</td>
+<td>400</td>
+<td>delay while typing for show tooltip</td>
+</tr>
+<tr>
+<td>tooltipLimit</td>
+<td>-1</td>
+<td>limit max results to show in tooltip. -1 for no limit, 0 for no results</td>
+</tr>
+<tr>
+<td>tipAutoSubmit</td>
+<td>true</td>
+<td>auto map panTo when click on tooltip</td>
+</tr>
+<tr>
+<td>firstTipSubmit</td>
+<td>false</td>
+<td>auto select first result con enter click</td>
+</tr>
+<tr>
+<td>autoResize</td>
+<td>true</td>
+<td>autoresize on input change</td>
+</tr>
+<tr>
+<td>collapsed</td>
+<td>true</td>
+<td>collapse search control at startup</td>
+</tr>
+<tr>
+<td>autoCollapse</td>
+<td>false</td>
+<td>collapse search control after submit(on button or on tips if enabled tipAutoSubmit)</td>
+</tr>
+<tr>
+<td>autoCollapseTime</td>
+<td>1200</td>
+<td>delay for autoclosing alert and collapse after blur</td>
+</tr>
+<tr>
+<td>textErr</td>
+<td>&#39;Location not found&#39;</td>
+<td>error message</td>
+</tr>
+<tr>
+<td>textCancel</td>
+<td>&#39;Cancel</td>
+<td>title in cancel button</td>
+</tr>
+<tr>
+<td>textPlaceholder</td>
+<td>&#39;Search&#39;</td>
+<td>placeholder value</td>
+</tr>
+<tr>
+<td>hideMarkerOnCollapse</td>
+<td>false</td>
+<td>remove circle and marker on search control collapsed</td>
+</tr>
+<tr>
+<td>position</td>
+<td>&#39;topleft&#39;</td>
+<td>position in the map</td>
+</tr>
+<tr>
+<td>marker</td>
+<td>{}</td>
+<td>custom L.Marker or false for hide</td>
+</tr>
+<tr>
+<td>marker.icon</td>
+<td>false</td>
+<td>custom L.Icon for maker location or false for hide</td>
+</tr>
+<tr>
+<td>marker.animate</td>
+<td>true</td>
+<td>animate a circle over location found</td>
+</tr>
+<tr>
+<td>marker.circle</td>
+<td>L.CircleMarker options</td>
+<td>draw a circle in location found</td>
+</tr>
+</tbody>
+</table>
+<h1 id="events">Events</h1>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Data</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#39;search:locationfound&#39;</td>
+<td>{latlng, title, layer}</td>
+<td>fired after moved and show markerLocation</td>
+</tr>
+<tr>
+<td>&#39;search:expanded&#39;</td>
+<td>{}</td>
+<td>fired after control was expanded</td>
+</tr>
+<tr>
+<td>&#39;search:collapsed&#39;</td>
+<td>{}</td>
+<td>fired after control was collapsed</td>
+</tr>
+</tbody>
+</table>
+<h1 id="methods">Methods</h1>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Arguments</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setLayer()</td>
+<td>L.LayerGroup()</td>
+<td>set layer search at runtime</td>
+</tr>
+<tr>
+<td>showAlert()</td>
+<td>&#39;Text message&#39;</td>
+<td>show alert message</td>
+</tr>
+<tr>
+<td>searchText()</td>
+<td>&#39;Text searched&#39;</td>
+<td>search text by external code</td>
+</tr>
+</tbody>
+</table>
+<h1 id="examples">Examples</h1>
+<p>(require src/leaflet-search.css)</p>
+<p>Adding the search control to the map:</p>
+<pre><code class="lang-javascript">var searchLayer = L.layerGroup().addTo(map);
+//... adding data in searchLayer ...
+map.addControl( new L.Control.Search({layer: searchLayer}) );
+//searchLayer is a L.LayerGroup contains searched markers
+</code></pre>
+<p>Short way:</p>
+<pre><code class="lang-javascript">var searchLayer = L.geoJson().addTo(map);
+//... adding data in searchLayer ...
+L.map(&#39;map&#39;, { searchControl: {layer: searchLayer} });
+</code></pre>
+<p>AMD module:</p>
+<pre><code class="lang-javascript">require([&quot;leaflet&quot;, &quot;leafletSearch&quot;],function(L, LeafletSearch) {
+
+    //... initialize leaflet map and dataLayer ...
+
+    map.addControl( new LeafletSearch({
+        layer: dataLayer
+    }) );
+});
+</code></pre>
+<h1 id="build">Build</h1>
+<p>Therefore the deployment require <strong>npm</strong> installed in your system.</p>
+<pre><code class="lang-bash">npm install
+grunt
+</code></pre>
+<h1 id="use-cases">Use Cases</h1>
+<p>This list is intended to be of utility for all developers who are looking web mapping sample code to solve complex problems of integration with other systems using Leaflet Control Search.</p>
+<p><strong>Anyone can add the link of your website</strong></p>
+<p><em>(spamming urls will be automatically deleted)</em></p>
+<ul>
+<li><a href="https://mkgrgis.github.io/mkgrgis/openPlanetWMS/MarsMap.html">Mars Map</a></li>
+<li><a href="https://nmeagen.org/">NMEA Generator</a></li>
+<li><a href="http://pouemes.free.fr">Pouemes</a></li>
+<li><a href="https://get-map.org/">get-map</a></li>
+<li><a href="https://github.com/python-visualization/folium">Folium</a></li>
+<li><a href="https://opentopomap.org/">OpenTopoMap</a></li>
+<li><a href="https://maposmatic.osm-baustelle.de/new/">MapOSMatic</a></li>
+<li><a href="https://bodabodaonline.com">BodabodaOnline</a></li>
+<li><a href="https://www.falesia.it/it/map/169729/260158/2/FAL/title=Mondo.html">Falesia.it</a></li>
+<li><a href="http://labs.easyblog.it/maps/leaflet-search/">Leaflet Control Search (Official demos)</a></li>
+<li><a href="http://fenixapps2.fao.org/crowddata/">FAO - Crowd Prices - Real time Price monitoring system</a></li>
+<li><a href="http://parkowaniegliwice.pl/lista-parkomatow/">Parkowanie Gliwice</a></li>
+<li><a href="http://agenziauscite.openstreetmap.it/compare.html">Agenziauscite.Openstreetmap.it</a></li>
+<li><a href="https://getbounds.com/blog/a-modern-leaflet-toolbar/">Modern Leaflet Toolbar</a></li>
+<li><a href="http://ungiro.it/percorsi/ciclomuro-street-art-bike-tour.htm">UnGiro.it</a></li>
+<li><a href="http://openbeermap.github.io/">OpenBeerMap</a></li>
+<li><a href="https://github.com/ernoma/GeoStatTampere">Spatial statistics for the city of Tampere, Finland</a></li>
+<li><a href="http://balimio.com/map">BALIMIO Bali photo guide</a></li>
+<li><a href="https://github.com/flask-admin/flask-admin">Flask Admin</a></li>
+<li><a href="http://lif-tools.com/">LIVE-Map LiF:YO</a></li>
+<li><a href="http://michaelskaug.com/projects/OpenTrailMap/">OpenTrailMap</a></li>
+<li><a href="https://www.rutasmorelia.com/">Rutas Morelia</a></li>
+<li><a href="https://mapsnigeriainitiative.com/searchplaces/search.html">mapsnigeriainitiative</a></li>
+<li><a href="https://www.edsm.net/en/galactic-mapping">EDSM - Galactic Map</a></li>
+<li><a href="https://www.dhkconsulting.com/moab/moab.html">The area of effect of the &quot;MOAB&quot; bomb in Afghanistan</a></li>
+<li><a href="https://github.com/python-visualization/folium">Folium - a Leaflet wrapper for Python</a></li>
+</ul>
+
+      </body>
+    </html>

@@ -1,0 +1,86 @@
+body {
+    font-family: sans-serif;
+    background-color: #eeeef2;
+}
+h4{
+    font-family: twister-scary;
+    color: #bf3636;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+#titlediv {
+    justify-content: center;
+}
+#title{
+    text-align: center;
+    font-family: twister-font;
+    font-size: 5em;
+    color:#ffffff;
+    text-shadow: 10px 10px 10px #b7b7bf, 0 0 20px #030341, 0 0 40px #000;
+    border: 0;
+    margin: 0;
+}
+#mapborder {
+    width: 75%;
+    height: 50%;
+    padding: 2em;
+    margin: 10px auto;
+    border: 5px solid #797b88;
+    border-radius: 20px;
+    background-image: url("images/cloudy-sky.png");
+}
+#mapdiv {
+    width: auto;
+    margin: 10 auto;
+    align-items: stretch;
+    justify-content: center;
+}
+#map {
+    height: 40em;
+    border: none;
+    border-radius: 15px;
+    align-self: flex-start;
+    align-items: stretch;
+}
+#slider {
+    margin: auto auto;
+    width: 25%;
+    padding: auto;
+    padding-bottom: 30px;
+    align-self: auto;
+}
+#year{
+    padding: auto auto;
+    text-align: center;
+    font-size: 50px;
+}
+#description{
+    font-size: 20px;
+}
+#datacredit{
+    font-size: 10px;
+    margin:0;
+    padding: 0;
+}
+.range-slider {
+    width: 100%;
+}
+#forward {
+    width: auto;
+    border-radius: 10px;
+    float: right;
+}
+#reverse {
+    width: auto; 
+    border-radius: 10px;
+    float: left;
+}
+#icon-credit{
+    font-size: 6px;
+    font-family: cursive;
+    vertical-align: bottom;
+    float: right;
+}
+.leaflet-popup-content p {
+    margin: 0 0;
+}

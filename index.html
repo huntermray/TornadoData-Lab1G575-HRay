@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Tornadoes In May</title>
+
+		<!--put your external stylesheet links here-->
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="leaflet-search-master/src/leaflet-search.css">
+        <link rel="stylesheet" href="leaflet-search-master/src/leaflet-search.mobile.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="leaflet.zoomhome.css"/>
+	</head>
+
+	<body>
+		<!--put your initial page content here-->
+		<div id="titlediv">
+            <p id="title">Tornado Threats in May<p>
+        </div>
+        	
+		<!--you can also use this space for internal scripts or stylesheets;
+		place these within <script> or <style> tags-->
+        <div id="mapborder">   
+            <div id="mapdiv">
+                <div id="map"></div>
+            </div>
+            <div id="slider">
+                <h4 id="year"><b>2013</b></h4>
+            </div>
+            <div id=description>
+            <p>During the month of May 2019, an unprecedented streak of tornadoes lasted 13 days across the U.S. The time-laps map above helps illustrate the number of tornadoes per state from 2013 - 2019 during the month of May.</p>
+            </div>
+            <div id=datacredit>           
+            <p>Data courtesy of:</p> <a href="https://www.spc.noaa.gov/wcm/#torclim">NOAA's NWS Storm Prediction Center</a>
+            </div>
+            <div id=icon-credit>Icons made by <a href="https://www.flaticon.com/authors/anhgreen" title="AnhGreen">AnhGreen</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+            </div>
+        </div>
+        
+        
+
+        <!--put your external script links here-->
+        <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+        <script type="text/javascript" src="js/leaflet.js"></script>
+        <script type="text/javascript" src="leaflet-search-master/src/leaflet-search.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script src="statesOutline.geojson"></script>
+        <script type="text/javascript" src="js/leaflet.zoomhome.min.js"></script>
+	</body>
+    <style>
+        @font-face {
+            font-family: twister-font;
+            src: url("lib/twister-font/Twister_Font.ttf");
+        }
+        @font-face {
+            font-family: twister-scary;
+            src: url("lib/twister-scary/twister-scary.ttf");
+        }
+    </style>
+</html>
