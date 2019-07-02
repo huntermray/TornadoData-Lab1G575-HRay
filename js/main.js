@@ -207,7 +207,7 @@ function updatePropSymbols(map, attribute){
 
             //add formatted attribute to panel content string
             var year = attribute.split("_")[1];
-            popupContent += "<p><b>Tornadoes in May:</b> " + year + props[attribute]+"</p>";
+            popupContent += "<p><b>Tornadoes in May </b>" + year + "<b>:<b/>" + "&nbsp"+ props[attribute] + "</p>";
 
             //replace the layer popup
             layer.bindPopup(popupContent, {
