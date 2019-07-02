@@ -13,8 +13,8 @@ function createMap(){
     });
     
     //defines map bounds
-    var southWest = L.latLng(25.738, -126.606),
-    northEast = L.latLng(49.838, -62.919),
+    var southWest = L.latLng(18.731, -139.222),
+    northEast = L.latLng(52.488, -51.069),
     mybounds = L.latLngBounds(southWest, northEast);
     
     //create the map with options
@@ -30,9 +30,13 @@ function createMap(){
     var zoomHome = L.Control.zoomHome({position: 'topleft'});
     zoomHome.addTo(map);
     
+    var statesStyle = {
+        "color": "#b1b1b1",
+        "weight": 1,
+        "opacity": 0.95 
+    }
     var statesLayer = L.geoJSON(stateOutlines,{
-        opacity: 0,
-        fillColor: "rgba(255, 255, 255, 0)"
+        style: statesStyle
     });
     map.fitBounds(statesLayer.getBounds());
     
@@ -53,7 +57,7 @@ function createMap(){
         "Terrain": Stamen_TerrainBackground   
     };
     var overlayMaps = {
-        "State Data": statesLayer   
+        "Search Layer": statesLayer   
     };
     
     L.control.layers(baseMaps,overlayMaps).addTo(map);
@@ -122,11 +126,11 @@ function pointToLayer(feature, latlng, attributes){
 
     //create marker options
     var options = {
-        fillColor: "#bf3636",
+        fillColor: "#ed5c10",
         color: "#000",
         weight: 1,
         opacity: 1,
-        fillOpacity: 0.8
+        fillOpacity: 0.7
     };
 
     //For each feature, determine its value for the selected attribute
@@ -203,7 +207,7 @@ function updatePropSymbols(map, attribute){
 
             //add formatted attribute to panel content string
             var year = attribute.split("_")[1];
-            popupContent += "<p><b>Tornadoes in May " + year + ":</b> " + props[attribute];
+            popupContent += "<p><b>Tornadoes in May " + year + props[attribute]+"</p>";
 
             //replace the layer popup
             layer.bindPopup(popupContent, {
@@ -220,10 +224,10 @@ function createSequenceControls(map,attributes){
     //create range input element (slider)
     $('#slider').append('<input class="range-slider" type="range">');
     //set slider attributes
-    $('#slider').append('<button class="skip" id="reverse"></button>');
-    $('#slider').append('<button class="skip" id="forward"></button>');
-    $('#reverse').html('<img src="img/tornado-left.png" width=20 height=20>');
-    $('#forward').html('<img src="img/tornado-right.png" width=20 height=20>');
+    //$('#slider').append('<button class="skip" id="reverse"></button>');
+    //$('#slider').append('<button class="skip" id="forward"></button>');
+    $('#reverse').append('<button class="skip" id="reverse"><img src="img/tornado-left.png" width=40 height=25></button>');
+    $('#forward').append('<button class="skip" id="forward"><img src="img/tornado-right.png" width=40 height=25></button>');
     
     $('.range-slider').attr({
         max: 6,

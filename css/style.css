@@ -4,8 +4,9 @@ body {
 }
 h4{
     font-family: twister-scary;
-    color: #bf3636;
+    color: #ed5c10;
     font-size: 50px;
+    margin-top: 0;
     margin-bottom: 10px;
 }
 #titlediv {
@@ -23,20 +24,37 @@ h4{
 #mapborder {
     width: 75%;
     height: 50%;
-    padding: 2em;
-    margin: 10px auto;
+    padding: 1em;
+    margin: auto auto;
     border: 5px solid #797b88;
     border-radius: 20px;
     background-image: url("images/cloudy-sky.png");
 }
-#mapdiv {
+#buttons {
+    height:50px;
     width: auto;
-    margin: 10 auto;
+    background-color:none;
+    position:relative;
+}
+#forward {
+	float: right;
+	margin-top: 1%;
+	margin-bottom: 2%;
+}
+#reverse {
+	float: left;
+	margin-top: 1%;
+	margin-bottom: 2%;
+}
+#mapdiv {
+    width: 100%;
+    margin-top: 2%;
     align-items: stretch;
     justify-content: center;
 }
 #map {
-    height: 40em;
+    height: 400px;
+    width: 90%
     border: none;
     border-radius: 15px;
     align-self: flex-start;
@@ -46,16 +64,20 @@ h4{
     margin: auto auto;
     width: 25%;
     padding: auto;
-    padding-bottom: 30px;
+    padding-bottom: 1%;
     align-self: auto;
 }
 #year{
+    margin-top: 0;
     padding: auto auto;
     text-align: center;
     font-size: 50px;
 }
 #description{
-    font-size: 20px;
+    font-size: 25px;
+    font-family: tox-typewriter;
+    background-color: none;
+    border-radius: 15px;
 }
 #datacredit{
     font-size: 10px;
@@ -65,16 +87,6 @@ h4{
 .range-slider {
     width: 100%;
 }
-#forward {
-    width: auto;
-    border-radius: 10px;
-    float: right;
-}
-#reverse {
-    width: auto; 
-    border-radius: 10px;
-    float: left;
-}
 #icon-credit{
     font-size: 6px;
     font-family: cursive;
@@ -83,4 +95,5 @@ h4{
 }
 .leaflet-popup-content p {
     margin: 0 0;
+    font-size: 22px;
 }
